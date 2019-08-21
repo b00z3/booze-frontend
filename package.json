@@ -1,5 +1,5 @@
 {
-  "name": "vue",
+  "name": "booze",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
   },
@@ -42,5 +43,10 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "description": "booze webapp",
+  "main": "index.js",
+  "repository": "https://github.com/b00z3/booze-frontend.git",
+  "author": "sina khalili <sina.khalili@canalyst.com>",
+  "license": "MIT"
 }
