@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p> Here is where you would put in your info!!! </p>
+    <p> Hello world wide web from Vancouver</p>
   </div>
 </template>
 
