@@ -5,8 +5,8 @@
                 <div class="helptext"> To get started, click the button below and add member to your party </div>
             </el-col>
         </el-row>
-        <el-row>
-            <el-col :xs="12" :sm="6" :md="4" :lg="3" :xl="1" v-for="person in people" :key="person.id">
+        <el-row class='give-margin'>
+            <el-col :xs="12" :sm="6" :md="5" :lg="3" :xl="1" v-for="person in people" :key="person.id">
                 <el-card class="box-card">
                     <div>Age: {{person.age}}</div>
                     <div>Married? {{person.married}}</div>
@@ -66,6 +66,6 @@
     margin: 1%;
   }
   .give-margin {
-      margin:1em
+      margin:2em
   }
 </style>
