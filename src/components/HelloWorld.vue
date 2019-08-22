@@ -1,34 +1,37 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p> Here is where you would put in your info!!! </p>
-    <p> Hello world wide web from Vancouver</p>
-  </div>
+    <el-col type="flex" justify="center">
+      <div>
+        <el-image style="width: 100px; height: 100px" :src="url" :fit="fit"></el-image>
+      </div>
+      <div>
+        <h1>Ready to b00z3?</h1>
+      </div>
+  </el-col>
 </template>
 
 <script>
-export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
+  export default {
+    name: 'HelloWorld',
+    props: {
+      msg: String
+    },
+    data() {
+      return {
+        test: '../assets/logo.png',
+        fit: 'contain',
+      }
+    },
+    computed: {
+      url() {
+        return require('../assets/logo.png')
+      }
+    },
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+h1{
+  margin:0.5em;
 }
 </style>
