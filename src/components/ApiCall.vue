@@ -1,26 +1,55 @@
 <template>
     <div>
-        <p>==============</p>
-        {{ something }}
-        <p>==============</p>
+        <el-button
+        class='give-margin'
+        type="success"
+        @click="analyze"
+        round>Analyze!</el-button>
+        <div v-show="predict">
+            <h1>We predict... 👇</h1>
+            <div v-loading="loading">
+                {{ res }}
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+    import axios from 'axios';
 
     export default {
         name: 'api-call',
         data() {
             return {
-                something: 'value'
+                res: 'value',
+                predict: false,
+                loading: true,
             }
         },
-        created() {
-            axios
-            .get('https://b00z3.herokuapp.com/')
-            .then(response => (this.something = response.data))
-        }
+        props: {
+            team: {
+                type: Array,
+                default: []
+            },
+        },
+        methods: {
+            analyze() {
+                this.predict = true
+                this.loading = true
+                axios
+                    .post('https://b00z3.herokuapp.com/',
+                           this.team)
+                    .then(response => {
+                        this.res = response.data
+                        this.loading = false
+                    })
+                    .catch(error => {
+                        console.log(error)
+                        this.res = 'Error retrieving data'
+                        this.loading = false
+                    })
+            }
+        },
     }
 </script>
 

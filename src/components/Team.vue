@@ -58,14 +58,18 @@
                 </el-dialog>
             </el-col>
         </el-row>
-        <el-button class='give-margin' type="success" round>Analyze!</el-button>
-
+        <api-call :team="people"/>
     </div>
 </template>
 
 <script>
+import ApiCall from './ApiCall.vue'
+
     export default {
         name: 'team',
+        components: {
+            ApiCall,
+        },
         data() {
             return {
                 people: [],

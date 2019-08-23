@@ -2,21 +2,21 @@
   <div id="app">
     <HelloWorld/>
     <team/>
-    <api-call/>
+    <footer-beer/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import ApiCall from './components/ApiCall.vue'
 import Team from './components/Team.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'app',
   components: {
     HelloWorld,
-    ApiCall,
     Team,
+    'footer-beer': Footer,
   }
 }
 </script>
@@ -29,5 +29,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-bottom: 0%;
 }
+.el-footer {
+    color: #333;
+    text-align: center;
+    line-height: 60px;
+    margin-top: 10em;
+  }
 </style>
