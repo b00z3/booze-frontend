@@ -39,7 +39,7 @@
                 this.predict = true
                 this.loading = true
                 axios
-                    .post('http://0.0.0.0:8000/',
+                    .post('https://b00z3.herokuapp.com/',
                            this.team)
                     .then(response => {
                         this.res = response.data.answer
