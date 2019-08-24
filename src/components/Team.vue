@@ -2,7 +2,7 @@
     <div>
         <el-row>
             <el-col>
-                <div class="helptext"> To get started, click the button below and add member to your party </div>
+                <div class="helptext"> To get started, click the button below and add a member to your party </div>
             </el-col>
         </el-row>
         <el-row class='give-margin'>
