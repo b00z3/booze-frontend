@@ -8,7 +8,9 @@
         <div v-show="predict">
             <h1>We predict... 👇</h1>
             <div v-loading="loading">
-                {{ res }}
+                <div v-for="sentence in res">
+                    {{ sentence }}
+                </div>
             </div>
         </div>
     </div>
@@ -21,7 +23,7 @@
         name: 'api-call',
         data() {
             return {
-                res: 'value',
+                res: ['value'],
                 predict: false,
                 loading: true,
             }
@@ -37,10 +39,10 @@
                 this.predict = true
                 this.loading = true
                 axios
-                    .post('https://b00z3.herokuapp.com/',
+                    .post('http://0.0.0.0:8000/',
                            this.team)
                     .then(response => {
-                        this.res = response.data
+                        this.res = response.data.answer
                         this.loading = false
                     })
                     .catch(error => {
