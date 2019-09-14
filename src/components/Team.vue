@@ -12,6 +12,7 @@
                         <div>Age: {{person.age}}</div>
                         <div>{{person.married}}</div>
                         <div>Gender: {{person.gender}}</div>
+                        <div>Race: {{person.race}}</div>
                     </div>
                     <div class="bottom clearfix">
                         <el-button style="float: left; padding: 3px " type="text"
@@ -50,6 +51,16 @@
                                 <el-radio-button label="Other"></el-radio-button>
                             </el-radio-group>
                         </el-form-item>
+                        <el-form-item label="Race">
+                            <el-radio-group v-model="default_radio_race" :model="form.gender">
+                                <el-radio-button label="Asian"></el-radio-button>
+                                <el-radio-button label="Black"></el-radio-button>
+                                <el-radio-button label="White"></el-radio-button>
+                                <el-radio-button label="First Nations"></el-radio-button>
+                                <el-radio-button label="Two or more races"></el-radio-button>
+                                <el-radio-button label="Hawaiian or Pacific Islander"></el-radio-button>
+                            </el-radio-group>
+                        </el-form-item>
                     </el-form>
                     <span slot="footer" class="dialog-footer">
                         <el-button @click="dialogFormVisible = false">Cancel</el-button>
@@ -73,6 +84,8 @@ import ApiCall from './ApiCall.vue'
         data() {
             return {
                 people: [],
+                people_iowa: [],
+                people_bc: [],
                 dialogFormVisible: false,
                 form: {
                     age: 19,
@@ -85,6 +98,7 @@ import ApiCall from './ApiCall.vue'
                 labelPosition: 'top',
                 default_radio: 'Not Married',
                 default_radio_gender: 'Male',
+                default_radio_race: 'Male',
                 default_age: 19,
                 edit_id: -1,
             }
@@ -105,6 +119,7 @@ import ApiCall from './ApiCall.vue'
                     this.people[ind].age = this.default_age,
                     this.people[ind].married = this.default_radio,
                     this.people[ind].gender = this.default_radio_gender,
+                    this.people[ind].race = this.default_radio_race,
                     this.edit_id = -1
                 }
                 else {
@@ -113,6 +128,7 @@ import ApiCall from './ApiCall.vue'
                             'uid': this.personUid,
                             'age': this.default_age,
                             'married': this.default_radio,
+                            'race': this.default_radio_race,
                             'gender': this.default_radio_gender,
                         }
                     )
@@ -125,6 +141,7 @@ import ApiCall from './ApiCall.vue'
                 this.default_age = this.people[ind].age
                 this.default_radio = this.people[ind].married
                 this.default_radio_gender = this.people[ind].gender
+                this.default_radio_race = this.people[ind].race
                 this.dialogFormVisible = true
             },
             deletePerson(personID) {
